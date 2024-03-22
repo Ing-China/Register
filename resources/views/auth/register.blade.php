@@ -108,6 +108,7 @@
                                 </button>
                             </div>
                         </div>
+
                         <div class="text-center">
                             <span>Already have an accouunt?</span>
                             <a href="{{ route('login') }}">Sign in instead</a>
