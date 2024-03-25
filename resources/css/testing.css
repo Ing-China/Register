@@ -1,0 +1,17 @@
+.fieldset1 {
+    border: 1px solid #000000;
+    padding: 10px;
+    margin: 10px;
+}
+.filters{
+    color: #000000;
+}
+/* .span{
+    position: relative;
+    top: -30px;
+    background-color: #ffffff;
+    left: 10px;
+}
+.col{
+    position: relative;
+} */

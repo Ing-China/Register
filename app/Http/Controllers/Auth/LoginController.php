@@ -26,4 +26,8 @@ class LoginController extends Controller
 
         return redirect('/login'); // Redirect to login page after logout
     }
+    protected function authenticated(Request $request, $user)
+    {
+        return redirect()->route('admin.users');
+    }
 }
