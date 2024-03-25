@@ -19,42 +19,47 @@
             <a class="btn btn-danger float-right m-3" href="#"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> --}}
 
-            <a class="btn btn-primary float-right m-3" href="{{ route('admin.category.create') }}">create</a>
+            <a class="btn btn-primary float-right m-3" href="{{ route('admin.product.create') }}">create</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Category Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Expired Date</th>
                         <th>User Name</th>
-                        <th>Photo</th>
+                        <th>Image</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($category as $item)
+                    @foreach ($products as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->description }}</td>
+                            <td>{{ $item->category->name }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->expired_date }}</td>
                             <td>{{ $item->user->name }}</td>
                             <td>
-                                @if ($item->user->image)
-                                    <img src="{{ asset('storage/uploads/' . $item->user->image) }}" width="40"
-                                        class="img-thumbnail rounded-circle" alt="User Image">
-                                @else
-                                    <p>No image available</p>
-                                @endif
+                                <img src="{{ asset('storage/uploads/' . $item->image) }}" width="40"
+                                    class="img-thumbnail rounded-circle" alt="">
                             </td>
                             <td>
-                                <form action="{{ route('admin.category.destroy', $item->id) }}" method="post">
+                                <form action="{{ route('admin.product.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('admin.category.show', $item->id) }}" class="btn btn-success"><i
+                                    <a href="{{ route('admin.product.show', $item->id) }}" class="btn btn-success"><i
                                             class="fa fa-eye"></i> </a>
-                                    <a href="{{ route('admin.category.edit', $item->id) }}" class="btn btn-primary"><i
+                                    <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary"><i
                                             class="fa fa-edit"></i> </a>
                                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
@@ -64,11 +69,16 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Category Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Expired Date</th>
                         <th>User Name</th>
-                        <th>Photo</th>
+                        <th>Image</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
             </table>

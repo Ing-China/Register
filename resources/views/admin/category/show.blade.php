@@ -45,7 +45,7 @@
         </div>
         <div class="card-footer">
             {{-- <button type="submit" class="btn btn-success btn-block">Save</button> --}}
-            <a href="{{ route('admin.category') }}" class="btn btn-danger btn-block">Back</a>
+            <a href="{{ route('admin.category') }}" class="btn btn-success btn-block">Back</a>
         </div>
     </form>
 @endsection

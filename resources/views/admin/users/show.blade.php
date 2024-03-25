@@ -85,10 +85,10 @@
                             </div> --}}
                         </div>
 
-                        {{-- <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-block">Save</button>
-                            <a href="{{ route('admin.users') }}" class="btn btn-danger btn-block">Cancel</a>
-                        </div> --}}
+                        <div class="card-footer">
+                            {{-- <button type="submit" class="btn btn-success btn-block">Save</button> --}}
+                            <a href="{{ route('admin.users') }}" class="btn btn-success btn-block">Cancel</a>
+                        </div>
 
                     </div>
                 </div>

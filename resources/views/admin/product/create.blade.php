@@ -12,51 +12,56 @@
             {{ session('error') }}
         </div>
     @endif
-    <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">User Create</h3>
+                        <h3 class="card-title">Create Product</h3>
                     </div>
 
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">User Name</label>
+                            <label for="name">Product Name</label>
                             <input type="text" name="name" class="form-control" id="name"
                                 placeholder="User Name">
                         </div>
                         <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <input type="text" name="gender" class="form-control" id="gender" placeholder="Gender">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" class="form-control" id="description"
+                                placeholder="Enter Description">
                         </div>
                         <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="text" name="age" class="form-control" id="age"
-                                placeholder="Enter Age">
+                            <label for="category_id">Category Name</label>
+                            <select name="category_id" class="form-control" id="category_id">
+                                @foreach ($categories as $category)
+                                    @if ($category->userid === auth()->id())
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="dob">Date of Birth</label>
-                            <input type="date" name="dob" class="form-control" id="dob"
-                                placeholder="Enter Date of Birth">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" class="form-control" id="price"
+                                placeholder="Enter Price">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" id="email"
-                                placeholder="Enter Email">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" name="quantity" class="form-control" id="quantity"
+                                placeholder="Enter Quantity">
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber">Phone Number</label>
-                            <input type="text" name="phonenumber" class="form-control" id="phonenumber"
-                                placeholder="Enter Phone Number">
+                            <label for="expired_date">Expired Date</label>
+                            <input type="date" name="expired_date" class="form-control" id="expired_date"
+                                placeholder="Enter Epired Date">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="password"
-                                placeholder="Enter Password">
+                            <label for="userid">User Name</label>
+                            <input type="hidden" name="userid" value="{{ auth()->user()->id }}"> <!-- Store user ID -->
+                            <input type="text" class="form-control" value="{{ auth()->user()->name }}" readonly>
                         </div>
-
                     </div>
                 </div>
 
@@ -88,7 +93,7 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-success btn-block">Save</button>
-                        <a href="{{ route('admin.users') }}" class="btn btn-danger btn-block">Cancel</a>
+                        <a href="{{ route('admin.product') }}" class="btn btn-danger btn-block">Cancel</a>
                     </div>
 
                 </div>

@@ -13,11 +13,11 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf <!-- CSRF protection -->
             </form>
             <a class="btn btn-danger float-right m-3" href="#"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> --}}
 
             <a class="btn btn-primary float-right m-3" href="{{ route('admin.users.create') }}">create</a>
         </div>
